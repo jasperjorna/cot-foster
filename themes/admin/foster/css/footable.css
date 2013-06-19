@@ -1,0 +1,83 @@
+﻿.footable {
+  -moz-border-radius: 0x;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.footable.breakpoint > tbody > tr > td.expand {
+  background: url('../img/plus.png') no-repeat 5px center;
+  padding-left: 40px;
+}
+
+.footable.breakpoint > tbody > tr.footable-detail-show > td.expand {
+  background: url('../img/minus.png') no-repeat 5px center;
+}
+
+.footable.breakpoint > tbody > tr.footable-row-detail {
+}
+
+.footable > tbody > tr:hover {
+}
+
+.footable.breakpoint > tbody > tr:hover:not(.footable-row-detail) {
+  cursor: pointer;
+}
+
+.footable > tbody > tr > td, .footable > thead > tr > th {
+}
+
+.footable > tbody > tr > td.footable-cell-detail {
+  border-left: none;
+}
+
+.footable > thead > tr > th, .footable > thead > tr > td {
+  border-top: none;
+}
+
+.footable > thead > tr:first-child > th.footable-first-column, .footable > thead > tr:first-child > td.footable-first-column {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.footable > thead > tr:first-child > th.footable-last-column, .footable > thead > tr:first-child > td.footable-last-column {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.footable > thead > tr:first-child > th.footable-first-column.footable-last-column, .footable > thead > tr:first-child > td.footable-first-column.footable-last-column {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.footable > tbody > tr:last-child > td.footable-first-column {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.footable > tbody > tr:last-child > td.footable-last-column {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.footable > tbody > tr:last-child > td.footable-first-column.footable-last-column {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.footable > thead > tr > th.footable-first-column, .footable > thead > tr > td.footable-first-column,
+.footable > tbody > tr > td.footable-first-column {
+  border-left: none;
+}
+
+.footable > tbody img {
+  vertical-align: middle;
+}
+
+.footable > tfoot > tr > th, .footable > tfoot > tr > td {
+}

@@ -1,0 +1,339 @@
+<!-- BEGIN: MAIN -->
+<div class="container-fluid">
+  {FILE "{PHP.cfg.themes_dir}/admin/{PHP.cfg.admintheme}/warnings.tpl"}
+</div>
+<div class="row-fluid">
+  <div class="container-fluid">
+    <!-- BEGIN: DETAILS -->
+    <div class="widget">
+      <div class="widget-header">
+        <h3>{ADMIN_EXTENSIONS_TYPE}: {ADMIN_EXTENSIONS_NAME}</h3>
+      </div><!-- /.widget-header -->
+      <div class="widget-content">
+        <p>{ADMIN_EXTENSIONS_DESCRIPTION}</p>
+
+        <!-- IF {PHP.isinstalled} -->
+        <div class="row-fluid">
+          <div class="span12">
+            <!-- IF {PHP.exists} -->
+              <a title="{PHP.L.adm_opt_install_explain}" href="{ADMIN_EXTENSIONS_UPDATE_URL}" class="btn btn-small"><i class="icon-refresh iconspaced"></i> <span class="hidden-phone">{PHP.L.adm_opt_update}</span></a>
+            <!-- ENDIF -->
+
+            <a title="{PHP.L.adm_opt_pauseall_explain}" href="{ADMIN_EXTENSIONS_PAUSE_URL}" class="btn btn-small"><i class="icon-pause iconspaced"></i> <span class="hidden-phone">{PHP.L.adm_opt_pauseall}</span></a>
+
+            <!-- IF {PHP.exists} -->
+              <a title="{PHP.L.adm_opt_unpauseall_explain}" href="{ADMIN_EXTENSIONS_UNPAUSE_URL}" class="btn btn-small"><i class="icon-play iconspaced"></i> <span class="hidden-phone">{PHP.L.adm_opt_unpauseall}</span></a>
+            <!-- ENDIF -->
+              <a title="{PHP.L.adm_opt_uninstall_explain}" href="{ADMIN_EXTENSIONS_UNINSTALL_URL}" class="btn btn-small btn-danger"><i class="icon-remove icon-white iconspaced"></i> <span class="hidden-phone">{PHP.L.adm_opt_uninstall}</span></a>
+          </div><!-- /.span12 -->
+        </div><!-- /.row-fluid -->
+        <!-- ENDIF -->
+
+        <div class="row-fluid">
+          <div class="span8">
+
+            <h3>{PHP.L.ExtensionDetails}:</h3>
+            <table class="table table-condensed">
+              <tr>
+                <th>{PHP.L.Code}:</th>
+                <td><span class="extcode">{ADMIN_EXTENSIONS_CODE}</span></td>
+              </tr>
+              <tr>
+                <th>{PHP.L.Version}:</th>
+                <td>
+                  <!-- IF {PHP.isinstalled} AND {ADMIN_EXTENSIONS_VERSION_COMPARE} > 0 -->
+                  <span class="badge badge-warning">{ADMIN_EXTENSIONS_VERSION_INSTALLED}</span>
+                  <span class="badge badge-success">{ADMIN_EXTENSIONS_VERSION}</span>
+                  <!-- ELSE -->
+                  {ADMIN_EXTENSIONS_VERSION}
+                  <!-- ENDIF --></td>
+              </tr>
+              <tr>
+                <th>{PHP.L.Date}:</th>
+                <td>{ADMIN_EXTENSIONS_DATE}</td>
+              </tr>
+              <tr>
+                <th>{PHP.L.Author}:</th>
+                <td>{ADMIN_EXTENSIONS_AUTHOR}</td>
+              </tr>
+              <tr>
+                <th>{PHP.L.Copyright}:</th>
+                <td>{ADMIN_EXTENSIONS_COPYRIGHT}</td>
+              </tr>
+              <tr>
+                <th>{PHP.L.Notes}:</th>
+                <td>{ADMIN_EXTENSIONS_NOTES}</td>
+              </tr>
+              <!-- BEGIN: DEPENDENCIES -->
+              <tr>
+                <th>{ADMIN_EXTENSIONS_DEPENDENCIES_TITLE}:</th>
+                <td>
+                  <!-- BEGIN: DEPENDENCIES_ROW -->
+                  <a href="{ADMIN_EXTENSIONS_DEPENDENCIES_ROW_URL}"><span class="label label-<!-- IF {ADMIN_EXTENSIONS_DEPENDENCIES_ROW_CLASS} --><!-- IF {ADMIN_EXTENSIONS_DEPENDENCIES_ROW_CLASS} == 'highlight_red' -->important<!-- ELSE -->success<!-- ENDIF --><!-- ELSE -->info<!--ENDIF -->">{ADMIN_EXTENSIONS_DEPENDENCIES_ROW_NAME}</span></a> &nbsp;
+                  <!-- END: DEPENDENCIES_ROW -->
+                </td>
+              </tr>
+              <!-- END: DEPENDENCIES -->
+            </table>
+          </div><!-- /.span8 -->
+
+          <div class="span4 pull-right">
+            <!-- IF !{PHP.isinstalled} -->
+              <div class="installbtn">
+                <a title="{PHP.L.adm_opt_install_explain}" href="{ADMIN_EXTENSIONS_INSTALL_URL}" class="btn btn-large btn-primary"><i class="icon-ok icon-white"></i> {PHP.L.adm_opt_install}</a>
+              </div>
+            <!-- ELSE -->
+              <h3>{PHP.L.Menu}:</h3>
+              <!-- IF {PHP.isinstalled} AND {PHP.exists} -->
+              <ul id="main-nav" class="nav nav-tabs nav-stacked">
+                <!-- IF {ADMIN_EXTENSIONS_JUMPTO_URL} -->
+                <li><a title="{PHP.L.Open}" href="{ADMIN_EXTENSIONS_JUMPTO_URL}"><i class="icon-share-alt iconspaced"></i> {PHP.L.Open}</a></li>
+                <!-- ENDIF -->
+
+                <!-- IF {ADMIN_EXTENSIONS_JUMPTO_URL_TOOLS} -->
+                <li><a title="{PHP.L.Administration}" href="{ADMIN_EXTENSIONS_JUMPTO_URL_TOOLS}" ><i class="icon-wrench iconspaced"></i> {PHP.L.Administration}</a></li>
+                <!-- ENDIF -->
+
+                <!-- IF {ADMIN_EXTENSIONS_TOTALCONFIG} > 0 -->
+                <li><a title="{PHP.L.Configuration}" href="{ADMIN_EXTENSIONS_CONFIG_URL}"><i class="icon-wrench iconspaced"></i> {PHP.L.Configuration} ({ADMIN_EXTENSIONS_TOTALCONFIG})</a></li>
+                <!-- ENDIF -->
+
+                <li><a title="{PHP.L.Rights}" href="{ADMIN_EXTENSIONS_RIGHTS}"><i class="icon-eye-open iconspaced"></i> {PHP.L.short_rights}</a></li>
+
+                <!-- IF {ADMIN_EXTENSIONS_JUMPTO_URL_STRUCT} -->
+                <li><a title="{PHP.L.Structure}" href="{ADMIN_EXTENSIONS_JUMPTO_URL_STRUCT}"><i class="icon-list iconspaced"></i> {PHP.L.Structure}</a></li>
+                <!-- ENDIF -->
+              </ul>
+              <!-- ENDIF -->
+            <!-- ENDIF -->
+          </div><!-- /.span4 pull-right -->
+
+          <div class="row-fluid">
+            <div class="span8">
+              <h3>{PHP.L.ExtensionTags}:</h3>
+              <table class="table table-striped table-condensed">
+                <thead>
+                  <th>#</th>
+                  <th>{PHP.L.Part}</th>
+                  <th>{PHP.L.Files} / {PHP.L.Tags}</th>
+                </thead>
+                <tbody>
+                  <!-- BEGIN: ROW_ERROR_TAGS -->
+                  <tr>
+                    <td>{ADMIN_EXTENSIONS_DETAILS_ROW_I_1}</td>
+                    <td>{ADMIN_EXTENSIONS_DETAILS_ROW_PART}</td>
+                    <td>{PHP.L.None}</td>
+                  </tr>
+                  <!-- END: ROW_ERROR_TAGS -->
+                  <!-- BEGIN: ROW_TAGS -->
+                  <tr>
+                    <td>{ADMIN_EXTENSIONS_DETAILS_ROW_I_1}</td>
+                    <td>{ADMIN_EXTENSIONS_DETAILS_ROW_PART}</td>
+                    <td>{ADMIN_EXTENSIONS_DETAILS_ROW_LISTTAGS}</td>
+                  </tr>
+                  <!-- END: ROW_TAGS -->
+                </tbody>
+              </table>
+            </div><!-- /.span8 -->
+          </div><!-- /.row-fluid -->
+
+          <h3>{PHP.L.ExtensionParts}:</h3>
+          <table class="table table-condensed table-striped footable">
+            <thead>
+              <th data-hide="phone">#</th>
+              <th data-class="expand">{PHP.L.Part}</th>
+              <th data-hide="phone">{PHP.L.File}</th>
+              <th data-hide="phone">{PHP.L.Hooks}</th>
+              <th data-hide="phone">{PHP.L.Order}</th>
+              <th>{PHP.L.Status}</th>
+              <th data-hide="phone">{PHP.L.Action}</th>
+            </thead>
+            <tbody>
+              <!-- BEGIN: ROW_ERROR_PART -->
+              <tr>
+                <td colspan="3">{ADMIN_EXTENSIONS_DETAILS_ROW_X}</td>
+                <td colspan="4">{ADMIN_EXTENSIONS_DETAILS_ROW_ERROR}</td>
+              </tr>
+              <!-- END: ROW_ERROR_PART -->
+              <!-- BEGIN: ROW_PART -->
+              <tr>
+                <td>{ADMIN_EXTENSIONS_DETAILS_ROW_I_1}</td>
+                <td>{ADMIN_EXTENSIONS_DETAILS_ROW_PART}</td>
+                <td>{ADMIN_EXTENSIONS_DETAILS_ROW_FILE}</td>
+                <td>{ADMIN_EXTENSIONS_DETAILS_ROW_HOOKS}</td>
+                <td>{ADMIN_EXTENSIONS_DETAILS_ROW_ORDER}</td>
+                <td>{ADMIN_EXTENSIONS_DETAILS_ROW_STATUS}</td>
+                <td>
+                  <!-- BEGIN: ROW_PART_NOTINSTALLED -->
+                  &ndash;
+                  <!-- END: ROW_PART_NOTINSTALLED -->
+                  <!-- BEGIN: ROW_PART_PAUSE -->
+                  <br class="visible-phone">
+                  <a href="{ADMIN_EXTENSIONS_DETAILS_ROW_PAUSEPART_URL}" class="btn btn-mini"><i class="icon-pause"></i> {PHP.L.adm_opt_pause}</a>
+                  <!-- END: ROW_PART_PAUSE -->
+                  <!-- BEGIN: ROW_PART_UNPAUSE -->
+                  <br class="visible-phone">
+                  <a href="{ADMIN_EXTENSIONS_DETAILS_ROW_UNPAUSEPART_URL}" class="btn btn-mini"><i class="icon-play"></i> {PHP.L.adm_opt_unpause}</a>
+                  <!-- END: ROW_PART_UNPAUSE -->
+                </td>
+              </tr>
+              <!-- END: ROW_PART -->
+            </tbody>
+          </table>
+
+        </div><!-- /.widget-content -->
+      </div><!-- /.widget -->
+      <!-- END: DETAILS -->
+
+      <!-- BEGIN: HOOKS -->
+      <div class="btn-toolbar">
+        <a title="{PHP.L.ShowAlphabetical}" class="btn btn-small" href="{PHP|cot_url('admin', 'm=extensions')}"><i class="icon-list iconspaced"></i> <span class="hidden-phone">{PHP.L.ShowAlphabetical}</span></a>
+        <a title="{PHP.L.ShowCategories}" class="btn btn-small" href="{PHP|cot_url('admin', 'm=extensions&sort=cat')}"><i class="icon-th iconspaced"></i> <span class="hidden-phone">{PHP.L.ShowCategories}</span></a>
+        <a title="{PHP.L.ShowParts}" class="btn btn-small active" href="{PHP|cot_url('admin', 'm=extensions&a=hooks')}"><i class="icon-leaf iconspaced"></i> <span class="hidden-phone">{PHP.L.ShowParts}</span></a>
+      </div>
+
+      <div class="widget">
+        <div class="widget-header">
+          <h3>{PHP.L.Hooks} ({ADMIN_EXTENSIONS_CNT_HOOK})</h3>
+        </div><!-- /widget-header -->
+        <div class="widget-content">
+          <table class="table table-striped table-condensed footable">
+            <thead>
+              <tr>
+                <th data-class="expand">{PHP.L.Hooks}</th>
+                <th data-hide="phone">{PHP.L.Plugin}</th>
+                <th data-hide="phone">{PHP.L.Order}</th>
+                <th data-hide="phone">{PHP.L.Active}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- BEGIN: HOOKS_ROW -->
+              <tr>
+                <td>{ADMIN_EXTENSIONS_HOOK}</td>
+                <td>{ADMIN_EXTENSIONS_CODE}</td>
+                <td>{ADMIN_EXTENSIONS_ORDER}</td>
+                <td>{ADMIN_EXTENSIONS_ACTIVE}</td>
+              </tr>
+              <!-- END: HOOKS_ROW -->
+            </tbody>
+          </table>
+        </div><!-- /.widget-content -->
+      </div><!-- /.widget -->
+      <!-- END: HOOKS -->
+
+      <!-- BEGIN: DEFAULT -->
+      <div class="btn-toolbar pull-left">
+          <a title="{PHP.L.ShowAlphabetical}" class="btn btn-small<!-- IF {ADMIN_EXTENSIONS_SORT_ALP_SEL} --> active<!-- ENDIF -->" href="{ADMIN_EXTENSIONS_SORT_ALP_URL}"><i class="icon-list iconspaced"></i> <span class="hidden-phone">{PHP.L.ShowAlphabetical}</span></a>
+          <a title="{PHP.L.ShowCategories}" class="btn btn-small<!-- IF {ADMIN_EXTENSIONS_SORT_CAT_SEL} --> active<!-- ENDIF -->" href="{ADMIN_EXTENSIONS_SORT_CAT_URL}"><i class="icon-th iconspaced"></i> <span class="hidden-phone">{PHP.L.ShowCategories}</span></a>
+          <a title="{PHP.L.ShowParts}" class="btn btn-small<!-- IF {PHP.a} == 'hooks' --> active<!-- ENDIF -->" href="{ADMIN_EXTENSIONS_HOOKS_URL}"><i class="icon-leaf iconspaced"></i> <span class="hidden-phone">{PHP.L.ShowParts}</span></a>
+        </div>
+        <div class="btn-toolbar pull-right">
+          <a title="{PHP.L.ShowAll}" class="btn btn-small<!-- IF !{ADMIN_EXTENSIONS_ONLY_INSTALLED_SEL} --> active<!-- ENDIF -->" href="{PHP.sort_urlp|cot_url('admin', 'm=extensions$this')}"><i class="icon-asterisk iconspaced"></i> <span class="hidden-phone">{PHP.L.ShowAll}</span></a>
+          <a title="{PHP.L.ShowInstalled}" class="btn btn-small<!-- IF {ADMIN_EXTENSIONS_ONLY_INSTALLED_SEL} --> active<!-- ENDIF -->" href="{PHP.sort_urlp|cot_url('admin', 'm=extensions&inst=1$this')}"><i class="icon-ok iconspaced"></i> <span class="hidden-phone">{PHP.L.ShowInstalled}</span></a>
+      </div>
+
+      <!-- BEGIN: SECTION-->
+      <div class="widget">
+        <div class="widget-header">
+          <h3>{ADMIN_EXTENSIONS_SECTION_TITLE} ({ADMIN_EXTENSIONS_CNT_EXTP})</h3>
+        </div><!-- /.widget-header -->
+        <div class="widget-content">
+          <table class="table table-striped">
+            <thead>
+              <th class="hidden-phone">&nbsp;</td>
+              <th>{PHP.L.Name} {PHP.L.adm_clicktoedit}</td>
+              <th class="hidden-phone">{PHP.L.Code}</td>
+              <th class="hidden-phone">{PHP.L.Version}</td>
+              <th class="hidden-phone">{PHP.L.Parts}</td>
+              <th>{PHP.L.Status}</td>
+              <th class="hidden-phone">{PHP.L.Action}</td>
+            </thead>
+            <!-- BEGIN: ROW -->
+            <!-- BEGIN: ROW_CAT -->
+            <tr>
+              <td colspan="7">
+                <h4>{ADMIN_EXTENSIONS_CAT_TITLE}</h4>
+              </td>
+            </tr>
+            <!-- END: ROW_CAT -->
+            <!-- BEGIN: ROW_ERROR_EXT -->
+            <tr>
+              <td>{ADMIN_EXTENSIONS_X_ERR}</td>
+              <td colspan="5">{ADMIN_EXTENSIONS_ERROR_MSG}</td>
+            </tr>
+            <!-- END: ROW_ERROR_EXT -->
+            <tr>
+              <td class="hidden-phone">
+                <!-- IF {ADMIN_EXTENSIONS_ICO} -->
+                <img src="{ADMIN_EXTENSIONS_ICO}" />
+                <!-- ELSE -->
+                <img src="{PHP.cfg.system_dir}/admin/img/plugins32.png" />
+                <!-- ENDIF -->
+              </td>
+              <td>
+                <a href="{ADMIN_EXTENSIONS_DETAILS_URL}"><strong>{ADMIN_EXTENSIONS_NAME}</strong></a>
+                <p>{ADMIN_EXTENSIONS_DESCRIPTION|cot_cutstring($this,60)}</p>
+              </td>
+              <td class="centerall hidden-phone"><span class="extcode">{ADMIN_EXTENSIONS_CODE_X}</span></td>
+              <td class="centerall hidden-phone">
+                <!-- IF {PHP.part_status} != 3 AND {ADMIN_EXTENSIONS_VERSION_COMPARE} > 0 -->
+                <span class="highlight_red">{ADMIN_EXTENSIONS_VERSION_INSTALLED}</span> / <span class="highlight_green">{ADMIN_EXTENSIONS_VERSION}</span>
+                <!-- ELSE -->
+                {ADMIN_EXTENSIONS_VERSION}
+                <!-- ENDIF -->
+              </td>
+              <td class="centerall hidden-phone">{ADMIN_EXTENSIONS_PARTSCOUNT}</td>
+              <td class="centerall">{ADMIN_EXTENSIONS_STATUS}</td>
+              <td class="action hidden-phone">
+
+              <!-- IF {PHP.part_status} != 3 -->
+              <div class="btn-group">
+                <!-- IF {PHP.if_plg_standalone} -->
+                <a class="btn btn-small" title="{PHP.L.Open}" href="{ADMIN_EXTENSIONS_JUMPTO_URL}"><i class="icon-share-alt"></i></a>
+                <!-- ELSE -->
+                <a class="btn btn-small disabled"><i class="icon-share-alt"></i></a>
+                <!-- ENDIF -->
+
+                <!-- IF {ADMIN_EXTENSIONS_TOTALCONFIG} -->
+                <a class="btn btn-small" title="{PHP.L.Configuration}" href="{ADMIN_EXTENSIONS_EDIT_URL}"><i class="icon-wrench"></i></a>
+                <!-- ELSE -->
+                <a class="btn btn-small disabled"><i class="icon-wrench"></i></a>
+                <!-- ENDIF -->
+
+                <!-- IF {PHP.ifstruct} -->
+                <a class="btn btn-small" title="{PHP.L.Structure}" href="{ADMIN_EXTENSIONS_JUMPTO_URL_STRUCT}"><i class="icon-list"></i></a>
+                <!-- ELSE -->
+                <a class="btn btn-small disabled"><i class="icon-list"></i></a>
+                <!-- ENDIF -->
+
+                <!-- IF {PHP.totalinstalled} -->
+                <a class="btn btn-small" title="{PHP.L.Rights}" href="{ADMIN_EXTENSIONS_RIGHTS_URL}"><i class="icon-eye-open"></i></a>
+                <!-- ELSE -->
+                <a class="btn btn-small disabled"><i class="icon-eye-open"></i></a>
+                <!-- ENDIF -->
+
+                <!-- IF {PHP.ifthistools} -->
+                <a class="btn btn-small" title="{PHP.L.Administration}" href="{ADMIN_EXTENSIONS_JUMPTO_URL_TOOLS}"><i class="icon-key"></i></a>
+                <!-- ELSE -->
+                <a class="btn btn-small disabled"><i class="icon-key"></i></a>
+                <!-- ENDIF -->
+              </div>
+              <!-- ENDIF -->
+
+              </td>
+            </tr>
+            <!-- END: ROW -->
+            <!-- BEGIN: ROW_ERROR -->
+            <tr>
+              <td>{ADMIN_EXTENSIONS_X}</td>
+              <td colspan="5">{PHP.L.adm_opt_setup_missing}</td>
+            </tr>
+            <!-- END: ROW_ERROR -->
+          </table>
+        </div><!-- /.widget-content -->
+      </div><!-- /.widget -->
+      <!-- END: SECTION -->
+    <!-- END: DEFAULT -->
+  </div><!-- /.container-fluid -->
+</div><!-- /.row-fluid -->
+<!-- END: MAIN -->
