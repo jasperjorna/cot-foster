@@ -35,7 +35,7 @@
         <!-- END: REFERERS_ROW -->
         <!-- IF {PHP.is_ref_empty} -->
         </table>
-        <div class="pagination"><ul>{ADMIN_REFERERS_PAGINATION_PREV}{ADMIN_REFERERS_PAGNAV}{ADMIN_REFERERS_PAGINATION_NEXT}</ul></div>>
+        <div class="pagination"><ul>{ADMIN_REFERERS_PAGINATION_PREV}{ADMIN_REFERERS_PAGNAV}{ADMIN_REFERERS_PAGINATION_NEXT}</ul></div>
         <span>{PHP.L.Total} : {ADMIN_REFERERS_TOTALITEMS}, {PHP.L.Onpage}: {ADMIN_REFERERS_ON_PAGE}</span>
         <!-- ELSE -->
         <table class="table table-striped">
