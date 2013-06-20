@@ -106,7 +106,9 @@
         </form>
         <!-- IF {PHP.pagenav.total} > 1 -->
         <div class="pagination">
+          <ul>
           {ADMIN_STRUCTURE_PAGNAV}
+          </ul>
         </div>
         <!-- ENDIF -->
         <!-- END: DEFAULT -->

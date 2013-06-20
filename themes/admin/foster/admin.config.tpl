@@ -6,12 +6,6 @@
   <div class="container-fluid">
     <!-- BEGIN: EDIT -->
 
-    <!-- IF !{ADMIN_CONFIG_SIBLING_NAME} -->
-    <div class="alert alert-warning alert-block">
-      <p>{PHP.L.RequireConfigSibings}</p>
-    </div>
-    <!-- ENDIF -->
-
     <div class="span3">
       <!-- BEGIN: ADMIN_CONFIG_SIBLINGS -->
       <div class="widget">
