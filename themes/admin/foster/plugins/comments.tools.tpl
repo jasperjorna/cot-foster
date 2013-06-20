@@ -37,7 +37,7 @@
 					</tr>
 					<!-- END: ADMIN_COMMENTS_ROW -->
 				</table>
-				<div class="pagination">{ADMIN_COMMENTS_PAGINATION_PREV}{ADMIN_COMMENTS_PAGNAV}{ADMIN_COMMENTS_PAGINATION_NEXT}</ul></div>
+				<div class="pagination"><ul>{ADMIN_COMMENTS_PAGINATION_PREV}{ADMIN_COMMENTS_PAGNAV}{ADMIN_COMMENTS_PAGINATION_NEXT}</ul></div>
         <span>{PHP.L.Total}: {ADMIN_COMMENTS_TOTALITEMS}, {PHP.L.Onpage}: {ADMIN_COMMENTS_COUNTER_ROW}</span>
       </div><!-- /.widget-content -->
     </div><!-- /.widget -->
