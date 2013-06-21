@@ -16,5 +16,3 @@ Lock_members=12345
 ==================== */
 
 defined('COT_CODE') or die('Wrong URL');
-
-?>
