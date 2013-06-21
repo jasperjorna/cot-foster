@@ -11,6 +11,7 @@
 
 defined('COT_CODE') or die('Wrong URL.');
 
+$L['RequireConfigSiblings'] = 'This admin panel requires the Config Siblings plugin to be installed. Please install it.';
 $L['DebugActive'] = 'Debug mode is ON';
 $L['DebugActiveTip'] = 'It\'s recommended to switch debug mode off on production sites.';
 
