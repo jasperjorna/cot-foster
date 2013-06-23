@@ -31,6 +31,9 @@ h1, h2, h3, h4, h5, h6 { font-weight: 300;  }
 .alignright { text-align: right!important; }
 .aligncenter { text-align: center!important; }
 
+.highlight_red { color: #C22323; }
+.highlight_green { color: #72C223; }
+
 /* ----------------
   Header
 ---------------- */

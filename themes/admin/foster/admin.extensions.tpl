@@ -274,18 +274,17 @@
                 <a href="{ADMIN_EXTENSIONS_DETAILS_URL}"><strong>{ADMIN_EXTENSIONS_NAME}</strong></a>
                 <p>{ADMIN_EXTENSIONS_DESCRIPTION|cot_cutstring($this,60)}</p>
               </td>
-              <td class="centerall hidden-phone"><span class="extcode">{ADMIN_EXTENSIONS_CODE_X}</span></td>
-              <td class="centerall hidden-phone">
+              <td class="hidden-phone"><span class="extcode">{ADMIN_EXTENSIONS_CODE_X}</span></td>
+              <td class="hidden-phone">
                 <!-- IF {PHP.part_status} != 3 AND {ADMIN_EXTENSIONS_VERSION_COMPARE} > 0 -->
                 <span class="highlight_red">{ADMIN_EXTENSIONS_VERSION_INSTALLED}</span> / <span class="highlight_green">{ADMIN_EXTENSIONS_VERSION}</span>
                 <!-- ELSE -->
                 {ADMIN_EXTENSIONS_VERSION}
                 <!-- ENDIF -->
               </td>
-              <td class="centerall hidden-phone">{ADMIN_EXTENSIONS_PARTSCOUNT}</td>
-              <td class="centerall">{ADMIN_EXTENSIONS_STATUS}</td>
-              <td class="action hidden-phone">
-
+              <td class="hidden-phone">{ADMIN_EXTENSIONS_PARTSCOUNT}</td>
+              <td>{ADMIN_EXTENSIONS_STATUS}</td>
+              <td class="hidden-phone">
               <!-- IF {PHP.part_status} != 3 -->
               <div class="btn-group">
                 <!-- IF {PHP.if_plg_standalone} -->
@@ -319,7 +318,6 @@
                 <!-- ENDIF -->
               </div>
               <!-- ENDIF -->
-
               </td>
             </tr>
             <!-- END: ROW -->
