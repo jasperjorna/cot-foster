@@ -5,7 +5,7 @@
 <div class="row-fluid">
   <div class="container-fluid">
     <!-- BEGIN: EDIT -->
-
+    <!-- IF {PHP|cot_plugin_active('configsiblings')} -->
     <div class="span3">
       <!-- BEGIN: ADMIN_CONFIG_SIBLINGS -->
       <div class="widget">
@@ -31,8 +31,12 @@
       </div><!-- /.widget -->
       <!-- END: ADMIN_CONFIG_SIBLINGS -->
     </div><!-- /.span3 -->
-
+    <!-- ENDIF -->
+    <!-- IF {PHP|cot_plugin_active('configsiblings')} -->
     <div class="span9">
+    <!-- ELSE -->
+    <div class="span12">
+    <!-- ENDIF -->
       <div class="widget">
         <div class="widget-header">
           <h3>Configuration</h3>
