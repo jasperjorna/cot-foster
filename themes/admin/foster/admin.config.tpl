@@ -39,7 +39,7 @@
     <!-- ENDIF -->
       <div class="widget">
         <div class="widget-header">
-          <h3>Configuration</h3>
+          <h3>{PHP.L.Configuration}</h3>
         </div><!-- /.widget-header -->
         <div class="widget-content">
           <form action="{ADMIN_CONFIG_FORM_URL}" method="post">
