@@ -31,10 +31,12 @@
 <body>
 <div id="wrap">
   <header class="row-fluid">
-    <h1<!-- IF {PHP.m} == '' --> class="animated fadeIn"<!-- ENDIF -->><a href="{PHP|cot_url('admin')}">{PHP.cfg.maintitle}</a></h1>
-    <div class="viewweb<!-- IF {PHP.m} == '' --> animated fadeInRight"<!-- ENDIF -->">
-      <a class="btn btn-small" href="{PHP|cot_url('admin')}"> <i class="icon-home"></i></a>
-      <a class="btn btn-small" href="{PHP.cfg.mainurl}">{PHP.L.ViewWebsite} <i class="icon-signout iconspacedleft"></i></a>
+    <div class="headerinside">
+      <h1<!-- IF {PHP.m} == '' --> class="animated fadeIn"<!-- ENDIF -->><a href="{PHP|cot_url('admin')}">{PHP.cfg.maintitle}</a></h1>
+      <div class="viewweb<!-- IF {PHP.m} == '' --> animated fadeInRight"<!-- ENDIF -->">
+        <a class="btn btn-small" href="{PHP|cot_url('admin')}"> <i class="icon-home"></i></a>
+        <a class="btn btn-small" href="{PHP.cfg.mainurl}">{PHP.L.ViewWebsite} <i class="icon-signout iconspacedleft"></i></a>
+      </div>
     </div>
   </header>
   <div class="navbar navbar-inverse">

@@ -17,6 +17,7 @@ $L['DebugActiveTip']        = 'It\'s recommended to switch debug mode off on pro
 
 $L['ViewWebsite'] = 'View website';
 $L['Menu']        = 'Menu';
+$L['ToggleSize']  = 'Toggle width';
 
 $L['pagenav_first'] = 'First';
 $L['pagenav_prev']  = '&larr;';

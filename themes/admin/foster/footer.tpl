@@ -22,7 +22,9 @@
 <script src="{PHP.cfg.themes_dir}/admin/{PHP.cfg.admintheme}/js/bootstrap.js" type="text/javascript"></script>
 <script src="{PHP.cfg.themes_dir}/admin/{PHP.cfg.admintheme}/js/footable.js" type="text/javascript"></script>
 <script src="{PHP.cfg.themes_dir}/admin/{PHP.cfg.admintheme}/js/jquery.uniform.min.js" type="text/javascript"></script>
+<script src="{PHP.cfg.themes_dir}/admin/{PHP.cfg.admintheme}/js/jquery.cookie.js" type="text/javascript"></script>
 <script src="{PHP.cfg.themes_dir}/admin/{PHP.cfg.admintheme}/js/js.js" type="text/javascript"></script>
+
 </body>
 </html>
 <!-- END: FOOTER -->

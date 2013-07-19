@@ -34,6 +34,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: 300;  }
 .highlight_red { color: #C22323; }
 .highlight_green { color: #72C223; }
 
+.maxwidth { max-width: 1200px; margin: 0 auto;}
+
 /* ----------------
   Header
 ---------------- */
