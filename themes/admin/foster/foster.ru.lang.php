@@ -106,7 +106,7 @@ $L['ExtfOptions']          = 'Опции';
 $L['ExtfParameters']       = 'Параметры';
 $L['ExtfHTMLHelp']         = 'Доступные параметры';
 $L['ExtfHTML']             = 'Шаблон HTML для поля формы';
-$L['ExtfHTMLInfo'] = массив(
+$L['ExtfHTMLInfo'] = array(
         'ввод'        => '{$name} {$value} {$attrs} {$error}',
         'текстовое поле'     => '{$name} {$value} {$rows} {$cols} {$attrs} {$error}',
         'inputint'     => '{$name} {$value} {$attrs} {$error}',
@@ -188,8 +188,8 @@ $L['ViewAll'] = 'Просмотреть все';
 $L['Posts']   = 'Публикации';
 $L['AllPFS']  = 'Все PFS';
 
-$Ls['Users'] = массив('пользователи','пользователь');
-$Ls['Files'] = массив('файлы','файл');
-$Ls['Hits']  = массив('совпадения','совпадение');
+$Ls['Users'] = array('пользователи','пользователь');
+$Ls['Files'] = array('файлы','файл');
+$Ls['Hits']  = array('совпадения','совпадение');
 
 $L['adm_ref_prunelow'] = 'Очистить рефералов с менее чем 5 посещениями';
