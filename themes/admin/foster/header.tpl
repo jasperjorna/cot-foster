@@ -25,6 +25,7 @@
 <link href="{PHP.cfg.themes_dir}/admin/{PHP.cfg.admintheme}/css/font-awesome-ie7.css" type="text/css" rel="stylesheet" />
 <link href="{PHP.cfg.themes_dir}/admin/{PHP.cfg.admintheme}/css/overrides.css" type="text/css" rel="stylesheet" />
 <link href="{PHP.cfg.themes_dir}/admin/{PHP.cfg.admintheme}/css/style.css" type="text/css" rel="stylesheet" />
+<link href="{PHP.cfg.themes_dir}/admin/{PHP.cfg.admintheme}/css/modal.css" type="text/css" rel="stylesheet" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,300,700,200' rel='stylesheet' type='text/css'>
 </head>

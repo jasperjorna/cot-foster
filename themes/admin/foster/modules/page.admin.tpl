@@ -9,7 +9,7 @@
         <h3>{PHP.L.Pages} ({ADMIN_PAGE_TOTALDBPAGES})</h3>
       </div><!-- /.widget-header -->
       <div class="widget-content">
-        <script type="text/javascript">
+        <script>
           $(document).ready(function()
           {
             $('.moreinfo').hide();
@@ -33,7 +33,7 @@
             <!-- IF {ADMIN_PAGE_TOTALITEMS} > 1 -->{PHP.L.adm_sort} {ADMIN_PAGE_ORDER} {ADMIN_PAGE_WAY};<!-- ENDIF -->{ADMIN_PAGE_FILTER}
             <input name="paction" type="submit" value="{PHP.L.Filter}" class="btn" onclick="this.form.paction.value=this.value" />
           </div>
-          <table class="table">
+          <table class="table table-striped">
             <thead>
               <th>
                 <!-- IF {PHP.cfg.jquery} -->
@@ -46,18 +46,17 @@
             </thead>
             <!-- BEGIN: PAGE_ROW -->
             <tr>
-              <td class="centerall {ADMIN_PAGE_ODDEVEN}">
+              <td>
                 <input name="s[{ADMIN_PAGE_ID}]" type="checkbox" class="checkbox" />
               </td>
-              <td class="centerall {ADMIN_PAGE_ODDEVEN}">
+              <td>
                 {ADMIN_PAGE_ID}
               </td>
-              <td class="{ADMIN_PAGE_ODDEVEN}">
+              <td>
                 <div id="mor_{PHP.ii}" class='mor_info_on_off'>
                   <span class="strong" style="cursor:hand;">{ADMIN_PAGE_SHORTTITLE}</span>
                   <div class="moreinfo">
-                    <hr />
-                    <table class="table">
+                    <table class="table table-condensed">
                       <tr>
                         <td>{PHP.L.Category}:</td>
                         <td>{ADMIN_PAGE_CATPATH_SHORT}</td>
@@ -74,7 +73,7 @@
                   </div>
                 </div>
               </td>
-              <td class="action {ADMIN_PAGE_ODDEVEN}">
+              <td>
                 <!-- IF {PHP.row.page_state} == 1 --><a title="{PHP.L.Validate}" href="{ADMIN_PAGE_URL_FOR_VALIDATED}" class="confirmLink btn btn-small btn-success">{PHP.L.Validate}</a><!-- ENDIF -->
                 <a title="{PHP.L.Open}" href="{ADMIN_PAGE_ID_URL}" target="_blank" class="btn btn-small btn-primary">{PHP.L.short_open}</a>
                 <a title="{PHP.L.Edit}" href="{ADMIN_PAGE_URL_FOR_EDIT}" target="_blank" class="btn btn-small">{PHP.L.Edit}</a>
@@ -84,16 +83,12 @@
             <!-- END: PAGE_ROW -->
             <!-- IF {PHP.is_row_empty} -->
             <tr>
-              <td class="centerall" colspan="4">{PHP.L.None}</td>
+              <td colspan="4">{PHP.L.None}</td>
             </tr>
             <!-- ENDIF -->
-            <tr>
-              <td class="valid" colspan="4">
-                <!-- IF {PHP.filter} != {PHP.L.adm_validated} --><input name="paction" type="submit" value="{PHP.L.Validate}" onclick="this.form.paction.value=this.value" class="btn btn-small btn-success" /><!-- ENDIF -->
-                <input name="paction" type="submit" value="{PHP.L.Delete}" onclick="this.form.paction.value=this.value" class="btn btn-small btn-danger" />
-              </td>
-            </tr>
           </table>
+          <!-- IF {PHP.filter} != {PHP.L.adm_validated} --><input name="paction" type="submit" value="{PHP.L.Validate}" onclick="this.form.paction.value=this.value" class="btn btn-small btn-success" /><!-- ENDIF -->
+          <input name="paction" type="submit" value="{PHP.L.Delete}" onclick="this.form.paction.value=this.value" class="btn btn-small btn-danger" />
           <div class="pagination"><ul>{ADMIN_PAGE_PAGINATION_PREV}{ADMIN_PAGE_PAGNAV}{ADMIN_PAGE_PAGINATION_NEXT}</ul></div>
           <span>{PHP.L.Total}: {ADMIN_PAGE_TOTALITEMS}, {PHP.L.Onpage}: {ADMIN_PAGE_ON_PAGE}</span>
         </form>
