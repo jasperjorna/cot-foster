@@ -3,7 +3,6 @@
  * Foster English language
  *
  * @package Cotonti
- * @version 0.9.x
  * @author Twiebie
  * @copyright Copyright (c) 2013 Cotonti Team, Twiebie
  * @license BSD
@@ -134,6 +133,7 @@ $L['ExtfFormat']         = 'Format for <a href="http://php.net/manual/en/functio
 $L['ExtfRangeIntInfo']   = 'Provide two integers.';
 $L['ExtfRangeFloatInfo'] = 'Provide two decimal numbers.';
 $L['ExtfSeparator']      = 'Separator';
+$L['ExtfNone']           = 'No extrafields have been added yet for this table.';
 
 /* Infos */
 $L['SystemInfo']        = 'System information';

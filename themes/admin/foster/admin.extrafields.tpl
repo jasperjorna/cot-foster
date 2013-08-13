@@ -31,12 +31,12 @@
           <!-- END: TABLELIST -->
 
           <!-- BEGIN: TABLE -->
-          <h3 class="topheading">{PHP.L.ExtraFields}
+          <h3 class="topheading">{PHP.L.ExtraFields}:
           <!-- FOR {K}, {V} IN {PHP.extra_whitelist} -->
-          <!-- IF {K} == {PHP.n} AND {V.caption} -->: {V.caption}<!-- ENDIF -->
+          <!-- IF {K} == {PHP.n} AND {V.caption} -->{V.caption}<!-- ENDIF -->
           <!-- ENDFOR -->
           </h3>
-          <p>{PHP.L.adm_extrafields_table}: {PHP.n}</p>
+          <p>{PHP.L.adm_extrafields_table}: <strong>{PHP.n}</strong></p>
         </div><!-- /.row-fluid -->
         <div class="row-fluid">
           <div class="span6">
@@ -51,7 +51,7 @@
                 </div>
                 <div id="extf_{ADMIN_EXTRAFIELDS_ROW_ID}" class="accordion-body collapse<!-- IF {ADMIN_EXTRAFIELDS_ROW_COUNTER_ROW} == 1 --> in<!-- ENDIF -->">
                   <div class="accordion-inner">
-                    <form action="{PHP.n|cot_url('admin', 'm=extrafields&n=$this&a=upd')}" method="post" class="form-inline">
+                    <form action="{PHP.n|cot_url('admin', 'm=extrafields&amp;n=$this&amp;a=upd')}" method="post" class="form-inline">
                       <input type="hidden" name="field_enabled[{ADMIN_EXTRAFIELDS_ROW_ID}]" value="1">
                       <div class="control-group">
                         <label class="control-label"><strong>{PHP.L.ExtfTitle}</strong></label>
@@ -135,7 +135,7 @@
                       <div class="control-group">
                         <label class="control-label"><strong>{PHP.L.ExtfHTML}</strong></label>
                         <div class="controls">
-                          <textarea name="field_html[{ADMIN_EXTRAFIELDS_ROW_ID}]" rows="2">{PHP.row.field_html}</textarea>
+                          {ADMIN_EXTRAFIELDS_ROW_HTML}
                           <h5>{PHP.L.ExtfHTMLHelp}</h5>
                           <div class="extcode">
                             <!-- IF {PHP.row.field_type} == 'input' -->{PHP.L.ExtfHTMLInfo.input}<!-- ENDIF -->
@@ -168,13 +168,11 @@
               <!-- END: EXTRAFIELDS_ROW -->
             </div><!-- /.accordion #fields -->
             <!-- ELSE -->
-            <p>{PHP.L.None}</p>
+            <div class="alert alert-info">{PHP.L.ExtfNone}</div>
             <!-- ENDIF -->
             <!-- IF {PHP.pagenav.total} > 1 -->
-            <div class="pagination">
-              {ADMIN_EXTRAFIELDS_PAGNAV}
-            </div>
-            <p>{PHP.L.Total}: {ADMIN_EXTRAFIELDS_TOTALITEMS}, {PHP.L.Onpage}: {ADMIN_EXTRAFIELDS_COUNTER_ROW}</p>
+            <div class="pagination"><ul>{ADMIN_EXTRAFIELDS_PAGINATION_PREV} {ADMIN_EXTRAFIELDS_PAGNAV} {ADMIN_EXTRAFIELDS_PAGINATION_NEXT}</ul></div>
+            <span>{PHP.L.Total}: {ADMIN_EXTRAFIELDS_TOTALITEMS}, {PHP.L.Onpage}: {ADMIN_EXTRAFIELDS_ROW_COUNTER_ROW}</span>
             <!-- ENDIF -->
           </div><!-- /.span6 -->
 
@@ -321,127 +319,125 @@
             </form>
           </div><!-- /.span6 -->
         </div><!-- /.row-fluid -->
+        <!-- END: TABLE -->
+        <script>
+        $(document).ready(function() {
+            var options = [];
+            $('#extf_type_textarea').hide();
+            $('#extf_type_select').hide();
+            $('#extf_type_rangeint').hide();
+            $('#extf_type_rangefloat').hide();
+            $('#extf_type_checklistbox').hide();
+            $('#extf_type_datetime').hide();
 
-        <script type="text/javascript">
-        $(function(){
-          var options = [];
+            function updateOptions() {
+                $('#options').html('');
+                $.each(options, function (i) {
+                    $('#options').append('<li><a href="#" class="removeoption"><i class="icon-remove"></i></a> <span>' + options[i] + '</span></li>');
+                });
+                $('#extf_field_variants').val(options.toString());
+            }
 
-          $(".accordion").collapse();
-          $('#extf_type_textarea').hide();
-          $('#extf_type_select').hide();
-          $('#extf_type_rangeint').hide();
-          $('#extf_type_rangefloat').hide();
-          $('#extf_type_checklistbox').hide();
-          $('#extf_type_datetime').hide();
-
-          $('#extf_field_type').change(function() {
-            options = [];
-            $('#extf_field_params').val('');
-            updateOptions();
-            var val = $(this).val();
-            $('#customize').hide();
-            if (val == 'input') {
-              $('#customize').show();
-              $('#extf_type_input').show();
-            } else {
-              $('#extf_type_input').hide();
-            }
-            if (val == 'textarea') {
-              $('#customize').show();
-              $('#extf_type_textarea').show();
-            } else {
-              $('#extf_type_textarea').hide();
-            }
-            if (val == 'select' || val == 'checklistbox' || val == 'radio') {
-              $('#customize').show();
-              $('#extf_type_select').show();
-            } else {
-              $('#extf_type_select').hide();
-            }
-            if (val == 'range' || val == 'inputint') {
-              $('#customize').show();
-              $('#extf_type_rangeint').show();
-            } else {
-              $('#extf_type_rangeint').hide();
-            }
-            if (val == 'double' || val == 'currency') {
-              $('#customize').show();
-              $('#extf_type_rangefloat').show();
-            } else {
-              $('#extf_type_rangefloat').hide();
-            }
-            if (val == 'checklistbox') {
-              $('#customize').show();
-              $('#extf_type_checklistbox').show();
-            } else {
-              $('#extf_type_checklistbox').hide();
-            }
-            if (val == 'datetime') {
-              $('#customize').show();
-              $('#extf_type_datetime').show();
-            } else {
-              $('#extf_type_datetime').hide();
-            }
-          });
-          $('#newoption').click(function(e){
-            e.preventDefault();
-            var newopt = $('input[name=newoption]').val();
-            if (newopt) {
-              options.push(newopt);
-              updateOptions();
-            }
-            $('input[name=newoption]').val('');
-          });
-          $('a.removeoption').live('click', function(e){
-            e.preventDefault();
-            var opt = $(this).siblings('span:first').text();
-            options.splice(options.indexOf(opt), 1);
-            updateOptions();
-          });
-          function updateOptions(){
-            $('#options').html('');
-            $.each(options, function(i){
-              $('#options').append('<li><a href="#" class="removeoption"><i class="icon-remove"></i></a> <span>'+options[i]+'</span></li>');
+            $('#extf_field_type').change(function () {
+                options = [];
+                $('#extf_field_params').val('');
+                updateOptions();
+                var val = $(this).val();
+                $('#customize').hide();
+                if(val == 'input') {
+                    $('#customize').show();
+                    $('#extf_type_input').show();
+                } else {
+                    $('#extf_type_input').hide();
+                }
+                if(val == 'textarea') {
+                    $('#customize').show();
+                    $('#extf_type_textarea').show();
+                } else {
+                    $('#extf_type_textarea').hide();
+                }
+                if(val == 'select' || val == 'checklistbox' || val == 'radio') {
+                    $('#customize').show();
+                    $('#extf_type_select').show();
+                } else {
+                    $('#extf_type_select').hide();
+                }
+                if(val == 'range' || val == 'inputint') {
+                    $('#customize').show();
+                    $('#extf_type_rangeint').show();
+                } else {
+                    $('#extf_type_rangeint').hide();
+                }
+                if(val == 'double' || val == 'currency') {
+                    $('#customize').show();
+                    $('#extf_type_rangefloat').show();
+                } else {
+                    $('#extf_type_rangefloat').hide();
+                }
+                if(val == 'checklistbox') {
+                    $('#customize').show();
+                    $('#extf_type_checklistbox').show();
+                } else {
+                    $('#extf_type_checklistbox').hide();
+                }
+                if(val == 'datetime') {
+                    $('#customize').show();
+                    $('#extf_type_datetime').show();
+                } else {
+                    $('#extf_type_datetime').hide();
+                }
             });
-            $('#extf_field_variants').val(options.toString());
-          }
-          $('input[name=intmin], input[name=intmax]').blur(function(){
-            var min = $('input[name=intmin]').val();
-            var max = $('input[name=intmax]').val();
-            if (min !== '' && max !== '') {
-              $('#extf_field_params').val(parseInt(min) + ',' + parseInt(max));
-            } else {
-              $('#extf_field_params').val('');
-            }
-          });
-          $('input[name=floatmin], input[name=floatmax]').blur(function(){
-            var min = $('input[name=floatmin]').val();
-            var max = $('input[name=floatmax]').val();
-            if (min !== '' && max !== '') {
-              $('#extf_field_params').val(parseFloat(min) + ',' + parseFloat(max));
-            } else {
-              $('#extf_field_params').val('');
-            }
-          });
-          $('input[name=datemin], input[name=datemax]').blur(function(){
-            var min = $('input[name=datemin]').val();
-            var max = $('input[name=datemax]').val();
-            var format = $('input[name=dateformat]').val();
-            if (min !== '' && max !== '') {
-              $('#extf_field_params').val(parseInt(min) + ',' + parseInt(max) + ',' + format);
-            } else {
-              $('#extf_field_params').val('');
-            }
-          });
-          $('input[name=regex]').blur(function(){
-            $('#extf_field_params').val($(this).val());
-          });
-          $('input[name=separator]').blur(function(){
-            $('#extf_field_params').val($(this).val());
-          });
+            $('#newoption').click(function (e) {
+                e.preventDefault();
+                var newopt = $('input[name=newoption]').val();
+                if(newopt) {
+                    options.push(newopt);
+                    updateOptions();
+                }
+                $('input[name=newoption]').val('');
+            });
+            $('a.removeoption').live('click', function (e) {
+                e.preventDefault();
+                var opt = $(this).siblings('span:first').text();
+                options.splice(options.indexOf(opt), 1);
+                updateOptions();
+            });
+            $('input[name=intmin], input[name=intmax]').blur(function () {
+                var min = $('input[name=intmin]').val();
+                var max = $('input[name=intmax]').val();
+                if(min !== '' && max !== '') {
+                    $('#extf_field_params').val(parseInt(min) + ',' + parseInt(max));
+                } else {
+                    $('#extf_field_params').val('');
+                }
+            });
+            $('input[name=floatmin], input[name=floatmax]').blur(function () {
+                var min = $('input[name=floatmin]').val();
+                var max = $('input[name=floatmax]').val();
+                if(min !== '' && max !== '') {
+                    $('#extf_field_params').val(parseFloat(min) + ',' + parseFloat(max));
+                } else {
+                    $('#extf_field_params').val('');
+                }
+            });
+            $('input[name=datemin], input[name=datemax]').blur(function () {
+                var min = $('input[name=datemin]').val();
+                var max = $('input[name=datemax]').val();
+                var format = $('input[name=dateformat]').val();
+                if(min !== '' && max !== '') {
+                    $('#extf_field_params').val(parseInt(min) + ',' + parseInt(max) + ',' + format);
+                } else {
+                    $('#extf_field_params').val('');
+                }
+            });
+            $('input[name=regex]').blur(function () {
+                $('#extf_field_params').val($(this).val());
+            });
+            $('input[name=separator]').blur(function () {
+                $('#extf_field_params').val($(this).val());
+            });
         });
         </script>
-        <!-- END: TABLE -->
       </div><!-- /.widget-content -->
     </div><!-- /.widget -->
   </div><!-- /.container-fluid -->

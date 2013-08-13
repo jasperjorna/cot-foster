@@ -3,7 +3,6 @@
  * Foster Russian language
  *
  * @package Cotonti
- * @version 0.9.x
  * @author Twiebie
  * @copyright Copyright (c) 2013 Cotonti Team, Twiebie
  * @license BSD
