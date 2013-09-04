@@ -48,11 +48,12 @@
       <div class="widget-content">
 
         <!-- BEGIN: DEFAULT -->
-        <h3 class="topheading pull-left">{PHP.L.editdeleteentries}</h3>
+        <h3 class="topheading">{PHP.L.editdeleteentries}
         <div class="pull-right">
           <a href="{ADMIN_STRUCTURE_URL_EXTRAFIELDS}" class="btn btn-small"><i class="icon-list-alt"></i> <span class="hidden-phone">{PHP.L.ExtraFields}</span></a>
           <a href="{ADMIN_PAGE_STRUCTURE_RESYNCALL}" class="btn btn-small" title="{PHP.L.adm_tpl_resyncalltitle}"><i class="icon-refresh"></i> <span class="hidden-phone">{PHP.L.Resync}</span></a>
         </div>
+        </h3>
 
         <form name="savestructure" id="savestructure" action="{ADMIN_STRUCTURE_UPDATE_FORM_URL}" method="post" class="ajax" enctype="multipart/form-data" >
           <table class="table table-striped table-condensed footable">
